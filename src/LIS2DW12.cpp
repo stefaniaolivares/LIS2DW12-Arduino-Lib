@@ -40,13 +40,13 @@ Distributed as-is; no warranty is given.
 //    where inputArg is address for I2C_MODE and chip select pin
 //    number for SPI_MODE
 //
-//  For SPI, construct LIS2DW12Core myIMU(SPI_MODE, 10, SPISettings(250000, MSBFIRST, SPI_MODE3));
+//  For SPI, construct LIS2DW12Core myIMU(SPI_MODE, 10, SPISettings(250000, SPI_MSBFIRST, SPI_MODE3));
 //  For I2C, construct LIS2DW12Core myIMU(I2C_MODE, 0x19); -> if SA0/SDO = VCC and myIMU(I2C_MODE, 0x18); -> if SA0/SDO = GND
 //
 //  Default construction is I2C mode, I2CAddress = 0x19.
 //
 //****************************************************************************//
-LIS2DW12Core::LIS2DW12Core( uint8_t busType, uint8_t inputArg, SPISettings settingArg) : commInterface(I2C_MODE), I2CAddress(0x19), chipSelectPin(10), COMMSettings(250000, MSBFIRST, SPI_MODE3)
+LIS2DW12Core::LIS2DW12Core( uint8_t busType, uint8_t inputArg, SPISettings settingArg) : commInterface(I2C_MODE), I2CAddress(0x19), chipSelectPin(10), COMMSettings(250000, SPI_MSBFIRST, SPI_MODE3)
 {
 	commInterface = busType;
 	if( commInterface == I2C_MODE )
